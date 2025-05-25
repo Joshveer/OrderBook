@@ -13,7 +13,7 @@ This project implements a complete electronic trading system featuring:
 ## Screenshots
 
 ### Live Order Book Display
-![Order Book Visualization](images/orderbook_display.png)
+![Order Book Visualization](https://github.com/user-attachments/assets/b372d72d-22f5-4fa4-bb35-95f26d99a7f7)
 *Real-time order book showing bid/ask levels with price and quantity information*
 
 ### Trade Execution Console
