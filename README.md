@@ -20,15 +20,15 @@ This project implements a complete electronic trading system featuring:
 - Trade Matching: Automatic execution when bid/ask prices cross
 ## Technical Architecture
 ### Core Components
-Order Class
+#### Order Class
 - Manages individual order lifecycle
 - Tracks filled/remaining quantities
 - Supports partial fills
-Orderbook Class
+#### Orderbook Class
 - Maintains separate bid/ask price levels
 - Implements price-time priority matching
 - Provides market data snapshots
-Matching Engine
+#### Matching Engine
 - Processes orders in real-time
 - Generates trade confirmations
 - Maintains market integrity
@@ -37,10 +37,6 @@ Matching Engine
 - STL Containers: Efficient use of maps and lists for O(log n) operations
 - Smart Pointers: Memory-safe order management
 ## Building and Running
-### Prerequisites
-- C++20 compatible compiler (GCC 10+, Clang 12+, MSVC 2019+)
-- CMake 3.15+ (optional)
-- Terminal with ANSI color support
 ### Compilation
 ```bash
 # Direct compilation
