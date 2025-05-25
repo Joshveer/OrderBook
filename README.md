@@ -1,95 +1,115 @@
-Order Book Trading System
+# Order Book Trading System
+
 A high-performance C++ implementation of a financial order book with real-time matching engine and visualization.
-Overview
+
+## Overview
+
 This project implements a complete electronic trading system featuring:
+- **Order Management**: Support for different order types and lifecycle management
+- **Matching Engine**: Real-time order matching with price-time priority
+- **Market Data**: Live order book visualization with bid/ask levels
+- **Trade Execution**: Automatic trade generation and reporting
 
-Order Management: Support for different order types and lifecycle management
-Matching Engine: Real-time order matching with price-time priority
-Market Data: Live order book visualization with bid/ask levels
-Trade Execution: Automatic trade generation and reporting
+## Screenshots
 
-Screenshots
-Live Order Book Display
-Show Image
-Real-time order book showing bid/ask levels with price and quantity information
-Trade Execution Console
-Show Image
-Console output showing order placement and trade execution
-Final Market State
-Show Image
-Final order book state after simulation completion
-Features
-Order Types
+### Live Order Book Display
+![Order Book Visualization](images/orderbook_display.png)
+*Real-time order book showing bid/ask levels with price and quantity information*
 
-Good Till Cancel (GTC): Orders remain active until filled or cancelled
-Fill and Kill (FAK): Orders execute immediately or are cancelled
+### Trade Execution Console
+![Trade Console](images/trade_execution.png)
+*Console output showing order placement and trade execution*
 
-Order Management
+### Final Market State
+![Final State](images/final_orderbook.png)
+*Final order book state after simulation completion*
 
-Order Placement: Add new orders to the book
-Order Modification: Update existing order parameters
-Order Cancellation: Remove orders from the book
-Trade Matching: Automatic execution when bid/ask prices cross
+## Features
 
-Market Data
+### Order Types
+- **Good Till Cancel (GTC)**: Orders remain active until filled or cancelled
+- **Fill and Kill (FAK)**: Orders execute immediately or are cancelled
 
-Level 2 Data: Full order book depth with aggregated quantities
-Real-time Updates: Live visualization of market changes
-Trade Reports: Detailed execution information
+### Order Management
+- **Order Placement**: Add new orders to the book
+- **Order Modification**: Update existing order parameters
+- **Order Cancellation**: Remove orders from the book
+- **Trade Matching**: Automatic execution when bid/ask prices cross
 
-Technical Architecture
-Core Components
-Order Class
+### Market Data
+- **Level 2 Data**: Full order book depth with aggregated quantities
+- **Real-time Updates**: Live visualization of market changes
+- **Trade Reports**: Detailed execution information
 
-Manages individual order lifecycle
-Tracks filled/remaining quantities
-Supports partial fills
+## Technical Architecture
 
-Orderbook Class
+### Core Components
 
-Maintains separate bid/ask price levels
-Implements price-time priority matching
-Provides market data snapshots
+**Order Class**
+- Manages individual order lifecycle
+- Tracks filled/remaining quantities
+- Supports partial fills
 
-Matching Engine
+**Orderbook Class**
+- Maintains separate bid/ask price levels
+- Implements price-time priority matching
+- Provides market data snapshots
 
-Processes orders in real-time
-Generates trade confirmations
-Maintains market integrity
+**Matching Engine**
+- Processes orders in real-time
+- Generates trade confirmations
+- Maintains market integrity
 
-Data Structures
+### Data Structures
+- **Price-Time Priority**: Orders sorted by price, then arrival time
+- **STL Containers**: Efficient use of maps and lists for O(log n) operations
+- **Smart Pointers**: Memory-safe order management
 
-Price-Time Priority: Orders sorted by price, then arrival time
-STL Containers: Efficient use of maps and lists for O(log n) operations
-Smart Pointers: Memory-safe order management
+## Building and Running
 
-Building and Running
-Prerequisites
+### Prerequisites
+- C++20 compatible compiler (GCC 10+, Clang 12+, MSVC 2019+)
+- CMake 3.15+ (optional)
+- Terminal with ANSI color support
 
-C++20 compatible compiler (GCC 10+, Clang 12+, MSVC 2019+)
-CMake 3.15+ (optional)
-Terminal with ANSI color support
-
-Compilation
-bash# Direct compilation
+### Compilation
+```bash
+# Direct compilation
 g++ -std=c++20 -O3 -o orderbook main.cpp
 
 # Or with CMake
 mkdir build && cd build
 cmake ..
 make
-Execution
-bash./orderbook
-Configuration
-Simulation Parameters
-cppconst int delayMs = 5;          // Delay between orders (milliseconds)
+```
+
+### Execution
+```bash
+./orderbook
+```
+
+## Configuration
+
+### Simulation Parameters
+```cpp
+const int delayMs = 5;          // Delay between orders (milliseconds)
 const int numOrders = 5000;     // Total orders to simulate
-Price/Quantity Ranges
-cppstd::uniform_int_distribution<int> priceDist(1, 1000);    // Price range
+```
+
+### Price/Quantity Ranges
+```cpp
+std::uniform_int_distribution<int> priceDist(1, 1000);    // Price range
 std::uniform_int_distribution<int> qtyDist(1, 1000);      // Quantity range
-Display Depth
-cppOrderbookPrinter::Print(orderbook.GetOrderInfos(), 6);    // Show top 6 levels
-Code Structure
+```
+
+### Display Depth
+```cpp
+OrderbookPrinter::Print(orderbook.GetOrderInfos(), 6);    // Show top 6 levels
+```
+
+## Code Structure
+
+```
 ├── Order Management
 │   ├── Order class - Individual order lifecycle
 │   ├── OrderModify class - Order modification requests
@@ -106,10 +126,72 @@ Code Structure
     ├── Random order generation
     ├── Real-time processing
     └── Performance metrics
-Key Algorithms
-Order Matching
+```
 
-Price Priority: Best prices matched first
-Time Priority: Earlier orders at same price level filled first
-Quantity Allocation: Partial fills supported
-Cross Detection: Automatic matching when bid ≥ ask
+## Key Algorithms
+
+### Order Matching
+1. **Price Priority**: Best prices matched first
+2. **Time Priority**: Earlier orders at same price level filled first
+3. **Quantity Allocation**: Partial fills supported
+4. **Cross Detection**: Automatic matching when bid ≥ ask
+
+### Market Data Generation
+- **Level Aggregation**: Sum quantities at each price level
+- **Real-time Updates**: Immediate reflection of order changes
+- **Depth Calculation**: Configurable number of levels displayed
+
+## Performance Characteristics
+
+- **Order Insertion**: O(log n) complexity
+- **Order Cancellation**: O(log n) complexity  
+- **Trade Matching**: O(k) where k is number of matches
+- **Memory Usage**: Efficient with smart pointer management
+- **Throughput**: Handles 5000+ orders with minimal latency
+
+## Customization
+
+### Adding New Order Types
+```cpp
+enum class OrderType { 
+    GoodTillCancel, 
+    FillAndKill,
+    ImmediateOrCancel,  // Add new type
+    StopLoss            // Add another type
+};
+```
+
+### Custom Matching Logic
+Modify the `MatchOrders()` method in the `Orderbook` class to implement:
+- **Stop orders**
+- **Iceberg orders**
+- **Time-in-force variations**
+
+### Alternative Display Formats
+Extend `OrderbookPrinter` class for:
+- **JSON output**
+- **CSV logging**
+- **Web interface integration**
+
+## Use Cases
+
+- **Educational**: Understanding order book mechanics
+- **Research**: Testing trading algorithms
+- **Prototyping**: Building trading system components
+- **Visualization**: Market microstructure analysis
+
+## License
+
+This project is open source. Feel free to use, modify, and distribute.
+
+## Contributing
+
+Contributions welcome! Areas for enhancement:
+- Additional order types
+- Performance optimizations
+- Extended market data features
+- Trading algorithm integration
+
+---
+
+*Note: This is a simulation system for educational purposes. Not intended for production trading.*
