@@ -42,32 +42,32 @@ Matching Engine
 - CMake 3.15+ (optional)
 - Terminal with ANSI color support
 ### Compilation
-''' bash
+```bash
 # Direct compilation
 g++ -std=c++20 -O3 -o orderbook main.cpp
 # Or with CMake
 mkdir build && cd build
 cmake ..
 make
-
+```
 ### Execution
-bash
+```bash
 ./orderbook
-
+```
 ## Configuration
 ### Simulation Parameters
-cpp
+```cpp
 const int delayMs = 5;          // Delay between orders (milliseconds)
 const int numOrders = 5000;     // Total orders to simulate
-
+```
 ### Price/Quantity Ranges
-cpp
+```cpp
 std::uniform_int_distribution<int> priceDist(1, 1000);    // Price range
 std::uniform_int_distribution<int> qtyDist(1, 1000);      // Quantity range
-
+```
 ### Display Depth
-cpp
+```cpp
 OrderbookPrinter::Print(orderbook.GetOrderInfos(), 6);    // Show top 6 levels
-
+```
 ## License
 [MIT](LICENSE)
