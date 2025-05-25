@@ -10,20 +10,6 @@ This project implements a complete electronic trading system featuring:
 - **Market Data**: Live order book visualization with bid/ask levels
 - **Trade Execution**: Automatic trade generation and reporting
 
-## Screenshots
-
-### Live Order Book Display
-![Order Book Visualization](https://github.com/user-attachments/assets/b372d72d-22f5-4fa4-bb35-95f26d99a7f7)
-*Real-time order book showing bid/ask levels with price and quantity information*
-
-### Trade Execution Console
-![Trade Console](images/trade_execution.png)
-*Console output showing order placement and trade execution*
-
-### Final Market State
-![Final State](images/final_orderbook.png)
-*Final order book state after simulation completion*
-
 ## Features
 
 ### Order Types
@@ -107,34 +93,11 @@ std::uniform_int_distribution<int> qtyDist(1, 1000);      // Quantity range
 OrderbookPrinter::Print(orderbook.GetOrderInfos(), 6);    // Show top 6 levels
 ```
 
-## Code Structure
+## Images
 
-```
-├── Order Management
-│   ├── Order class - Individual order lifecycle
-│   ├── OrderModify class - Order modification requests
-│   └── OrderType/Side enums - Order classification
-├── Trading Engine
-│   ├── Orderbook class - Core matching engine
-│   ├── Trade class - Execution records
-│   └── Matching algorithms - Price-time priority
-├── Market Data
-│   ├── LevelInfo struct - Price level aggregation
-│   ├── OrderbookLevelInfos - Market depth snapshot
-│   └── OrderbookPrinter - Real-time visualization
-└── Simulation
-    ├── Random order generation
-    ├── Real-time processing
-    └── Performance metrics
-```
-
-## Key Algorithms
-
-### Order Matching
-1. **Price Priority**: Best prices matched first
-2. **Time Priority**: Earlier orders at same price level filled first
-3. **Quantity Allocation**: Partial fills supported
-4. **Cross Detection**: Automatic matching when bid ≥ ask
+![Order Book Visualization](https://github.com/user/repo/assets/12345/your-image-url.png](https://github.com/user-attachments/assets/b372d72d-22f5-4fa4-bb35-95f26d99a7f7)
+![Order Book Visualization](https://github.com/user-attachments/assets/d95f8985-29e3-41cc-8cf1-7905c13e35cb)
+![Order Book Visualization]([https://github.com/user/repo/assets/12345/your-image-url.png](https://github.com/user-attachments/assets/b372d72d-22f5-4fa4-bb35-95f26d99a7f7"](https://github.com/user-attachments/assets/dfaf5a17-516d-4f7e-82b4-d5cf8d5173f0)
 
 ## License
 
