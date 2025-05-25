@@ -136,62 +136,6 @@ OrderbookPrinter::Print(orderbook.GetOrderInfos(), 6);    // Show top 6 levels
 3. **Quantity Allocation**: Partial fills supported
 4. **Cross Detection**: Automatic matching when bid ≥ ask
 
-### Market Data Generation
-- **Level Aggregation**: Sum quantities at each price level
-- **Real-time Updates**: Immediate reflection of order changes
-- **Depth Calculation**: Configurable number of levels displayed
-
-## Performance Characteristics
-
-- **Order Insertion**: O(log n) complexity
-- **Order Cancellation**: O(log n) complexity  
-- **Trade Matching**: O(k) where k is number of matches
-- **Memory Usage**: Efficient with smart pointer management
-- **Throughput**: Handles 5000+ orders with minimal latency
-
-## Customization
-
-### Adding New Order Types
-```cpp
-enum class OrderType { 
-    GoodTillCancel, 
-    FillAndKill,
-    ImmediateOrCancel,  // Add new type
-    StopLoss            // Add another type
-};
-```
-
-### Custom Matching Logic
-Modify the `MatchOrders()` method in the `Orderbook` class to implement:
-- **Stop orders**
-- **Iceberg orders**
-- **Time-in-force variations**
-
-### Alternative Display Formats
-Extend `OrderbookPrinter` class for:
-- **JSON output**
-- **CSV logging**
-- **Web interface integration**
-
-## Use Cases
-
-- **Educational**: Understanding order book mechanics
-- **Research**: Testing trading algorithms
-- **Prototyping**: Building trading system components
-- **Visualization**: Market microstructure analysis
-
 ## License
 
-This project is open source. Feel free to use, modify, and distribute.
-
-## Contributing
-
-Contributions welcome! Areas for enhancement:
-- Additional order types
-- Performance optimizations
-- Extended market data features
-- Trading algorithm integration
-
----
-
-*Note: This is a simulation system for educational purposes. Not intended for production trading.*
+MIT
