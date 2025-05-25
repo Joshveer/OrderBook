@@ -138,4 +138,4 @@ OrderbookPrinter::Print(orderbook.GetOrderInfos(), 6);    // Show top 6 levels
 
 ## License
 
-MIT
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
