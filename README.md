@@ -1,4 +1,4 @@
-Order Book Trading System
+## Order Book Trading System
 A high-performance C++ implementation of a financial order book with real-time matching engine and visualization.
 
 ![OrderBook Table](https://github.com/user-attachments/assets/dfaf5a17-516d-4f7e-82b4-d5cf8d5173f0)
@@ -18,10 +18,6 @@ This project implements a complete electronic trading system featuring:
 - Order Modification: Update existing order parameters
 - Order Cancellation: Remove orders from the book
 - Trade Matching: Automatic execution when bid/ask prices cross
-### Market Data
-- Level 2 Data: Full order book depth with aggregated quantities
-- Real-time Updates: Live visualization of market changes
-- Trade Reports: Detailed execution information
 ## Technical Architecture
 ### Core Components
 Order Class
@@ -74,4 +70,4 @@ cpp
 OrderbookPrinter::Print(orderbook.GetOrderInfos(), 6);    // Show top 6 levels
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+[MIT](LICENSE)
