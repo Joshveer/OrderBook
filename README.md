@@ -1,5 +1,5 @@
 ## Order Book Trading System
-A high-performance C++ implementation of a financial order book with real-time matching engine and visualization.
+A high-performance C++ implementation of an order book with real-time matching engine and visualization.
 
 ![OrderBook Table](https://github.com/user-attachments/assets/dfaf5a17-516d-4f7e-82b4-d5cf8d5173f0)
 
@@ -42,7 +42,7 @@ Matching Engine
 - CMake 3.15+ (optional)
 - Terminal with ANSI color support
 ### Compilation
-bash
+''' bash
 # Direct compilation
 g++ -std=c++20 -O3 -o orderbook main.cpp
 # Or with CMake
