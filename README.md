@@ -95,9 +95,9 @@ OrderbookPrinter::Print(orderbook.GetOrderInfos(), 6);    // Show top 6 levels
 
 ## Images
 
-![Order Book Visualization](https://github.com/user-attachments/assets/b372d72d-22f5-4fa4-bb35-95f26d99a7f7)
-![Order Book Visualization](https://github.com/user-attachments/assets/d95f8985-29e3-41cc-8cf1-7905c13e35cb)
-![Order Book Visualization](https://github.com/user-attachments/assets/dfaf5a17-516d-4f7e-82b4-d5cf8d5173f0)
+![OrderBook Table](https://github.com/user-attachments/assets/dfaf5a17-516d-4f7e-82b4-d5cf8d5173f0)
+![OrderBook Bids](https://github.com/user-attachments/assets/a88040e0-29ac-4655-8d76-81294c1a8fa4)
+![OrderBook Asks](https://github.com/user-attachments/assets/d95f8985-29e3-41cc-8cf1-7905c13e35cb)
 
 ## License
 
